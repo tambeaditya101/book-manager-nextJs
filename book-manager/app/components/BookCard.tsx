@@ -54,7 +54,7 @@ export default function BookCard({ book, onDelete, onUpdate }: Props) {
           status,
           tags: tags
             .split(',')
-            .map((t) => t.trim())
+            .map((t: string) => t.trim())
             .filter(Boolean),
         }),
       });
