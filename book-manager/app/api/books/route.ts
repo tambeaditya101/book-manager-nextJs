@@ -68,7 +68,10 @@ export async function GET(req: Request) {
     }
 
     if (tag) {
-      query.tags = tag;
+      query.tags = {
+        $regex: tag,
+        $options: 'i',
+      };
     }
 
     const books = await Book.find(query).sort({ createdAt: -1 });
